@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.services.math";
+option java_outer_classname = "MathProto";
+option objc_class_prefix = "MAS";
+
+package math;
+
+service Math {
+
+  rpc RootOfNumber(Number) returns (Number){}
+  
+  rpc SumOfNumbers(stream Number) returns (Number){}
+  
+  rpc PowerOfNumbers(stream Number) returns (stream Number){}
+  
+}
+
+message Number{
+  double value = 1;
+}
